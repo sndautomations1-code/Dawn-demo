@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
+import MorningSky from "./MorningSky";
+
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 function MaskedLine({
@@ -74,6 +76,8 @@ export default function Hero() {
           transition={{ duration: 64, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
+
+      <MorningSky />
 
       {/* dawn rays: thin concentric arcs rising behind the portrait */}
       <svg

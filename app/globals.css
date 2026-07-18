@@ -156,6 +156,37 @@ button:focus-visible {
   }
 }
 
+/* ---- Morning sky: cloud drift + sun halo pulse, motion-safe only ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .sky-cloud {
+    animation: cloud-drift var(--dur, 60s) ease-in-out var(--delay, 0s)
+      infinite alternate;
+  }
+
+  .sky-halo {
+    animation: halo-pulse 8s ease-in-out var(--halo-delay, 0s) infinite
+      alternate;
+  }
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(calc(var(--drift, 30px) * -0.5));
+  }
+  to {
+    transform: translateX(calc(var(--drift, 30px) * 0.5));
+  }
+}
+
+@keyframes halo-pulse {
+  from {
+    stroke-opacity: 0.15;
+  }
+  to {
+    stroke-opacity: 0.25;
+  }
+}
+
 /* ---- Reduced motion: stop ambient loops, keep everything readable ---- */
 @media (prefers-reduced-motion: reduce) {
   html {
