@@ -176,13 +176,22 @@ export default function Hero() {
           >
             Your skin,
           </MaskedLine>
-          <MaskedLine
-            delay={0.27}
-            reduceMotion={reduceMotion}
-            className="pl-[16vw] text-[clamp(2.1rem,7vw,7.25rem)] font-light italic leading-[1.05] md:pl-[24vw]"
-          >
-            starting
-          </MaskedLine>
+          {/* 1.2x the old serif size at 1.05/1.2 line-height: the line box
+              height is identical, so nothing below shifts */}
+          <span className="script-word block pl-[16vw] text-[clamp(2.52rem,8.4vw,8.7rem)] leading-[0.875] md:pl-[24vw]">
+            <motion.span
+              className="-my-[0.4em] inline-block py-[0.4em]"
+              initial={
+                reduceMotion
+                  ? false
+                  : { clipPath: "inset(-10% 102% -10% -2%)", opacity: 0.4 }
+              }
+              animate={{ clipPath: "inset(-10% -2% -10% -2%)", opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.95, ease: EASE }}
+            >
+              starting
+            </motion.span>
+          </span>
           {/* horizon line drawing itself under “starting” */}
           <span
             aria-hidden

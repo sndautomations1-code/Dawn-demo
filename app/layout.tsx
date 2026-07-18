@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Jost } from "next/font/google";
+import { Fraunces, Jost, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -13,6 +13,13 @@ const fraunces = Fraunces({
 const jost = Jost({
   subsets: ["latin"],
   variable: "--font-jost",
+  display: "swap",
+});
+
+const pinyon = Pinyon_Script({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-pinyon",
   display: "swap",
 });
 
@@ -35,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fraunces.variable} ${jost.variable} antialiased`}>
+      <body
+        className={`${fraunces.variable} ${jost.variable} ${pinyon.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

@@ -35,6 +35,15 @@ button:focus-visible {
   border-radius: 2px;
 }
 
+/* ---- Handwritten script for the "starting" headline word ---- */
+.script-word {
+  font-family: var(--font-pinyon), "Great Vibes", cursive;
+  /* script glyphs connect; tracking must stay at the font's natural flow */
+  letter-spacing: 0;
+  font-style: normal;
+  font-weight: 400;
+}
+
 /* ---- Kicker label ---- */
 .kicker {
   font-family: var(--font-jost), sans-serif;
