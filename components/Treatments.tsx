@@ -52,7 +52,7 @@ export default function Treatments() {
   const reduceMotion = useReducedMotion() ?? false;
 
   return (
-    <section className="px-6 py-28 sm:px-10 sm:py-36 lg:px-16">
+    <section id="treatments" className="px-6 py-28 sm:px-10 sm:py-36 lg:px-16">
       <div className="mx-auto max-w-6xl">
         <p className="kicker text-ink/60">Treatments — First Light</p>
         <h2 className="mt-5 max-w-2xl font-display text-4xl tracking-[-0.02em] text-ink sm:text-5xl">

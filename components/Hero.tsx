@@ -163,9 +163,12 @@ export default function Hero() {
         />
       </motion.div>
 
-      <motion.p className="kicker pt-10 text-ink/70 sm:pt-12" {...fadeIn(1.35)}>
+      {/* invisible spacer with the old eyebrow's exact metrics — the fixed
+          navbar occupies this space visually, and the hero layout keeps
+          the same vertical rhythm */}
+      <p aria-hidden className="kicker invisible pt-10 sm:pt-12">
         Dawn — Laser &amp; Skin Resurfacing
-      </motion.p>
+      </p>
 
       <div className="flex flex-1 flex-col justify-center py-16">
         <h1 className="font-display tracking-[-0.02em] text-ink">

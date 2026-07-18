@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import SunriseBackground from "@/components/SunriseBackground";
 import Sun from "@/components/Sun";
 import GrainOverlay from "@/components/GrainOverlay";
@@ -13,6 +14,7 @@ export default function Home() {
       <SunriseBackground />
       <Sun />
       <GrainOverlay />
+      <Navbar />
       <main>
         <Hero />
         <Treatments />

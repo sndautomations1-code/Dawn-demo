@@ -44,6 +44,36 @@ button:focus-visible {
   font-weight: 400;
 }
 
+/* ---- Navbar links: coral underline growing from the left ---- */
+.nav-link {
+  position: relative;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
 /* ---- Kicker label ---- */
 .kicker {
   font-family: var(--font-jost), sans-serif;
@@ -231,7 +261,9 @@ button:focus-visible {
   }
   .cta-pill,
   .cta-pill::before,
-  .card-horizon {
+  .card-horizon,
+  .nav-link,
+  .nav-link::after {
     transition: none;
   }
 }

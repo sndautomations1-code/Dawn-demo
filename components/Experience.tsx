@@ -73,6 +73,7 @@ export default function Experience() {
 
   return (
     <section
+      id="ritual"
       ref={ref}
       className="overflow-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
     >

@@ -8,7 +8,10 @@ export default function BookingCTA() {
   const reduceMotion = useReducedMotion() ?? false;
 
   return (
-    <section className="relative flex min-h-[85svh] items-center justify-center overflow-hidden px-6 py-28 sm:px-10">
+    <section
+      id="about"
+      className="relative flex min-h-[85svh] items-center justify-center overflow-hidden px-6 py-28 sm:px-10"
+    >
       {/* local glow that gently intensifies as the section enters view */}
       <motion.div
         aria-hidden
