@@ -168,24 +168,6 @@ button:focus-visible {
       alternate;
   }
 
-  .mist-line {
-    animation: cloud-drift var(--dur, 45s) ease-in-out var(--delay, 0s)
-      infinite alternate;
-  }
-
-  .mist-fog {
-    animation: fog-breathe var(--dur, 10s) ease-in-out var(--delay, 0s)
-      infinite alternate;
-  }
-}
-
-@keyframes fog-breathe {
-  from {
-    opacity: 0.72;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @keyframes cloud-drift {
