@@ -7,6 +7,45 @@ import MorningSky from "./MorningSky";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+/* Inner arcs orbit counter-clockwise, outer arcs clockwise. */
+const DAWN_ARCS = [
+  { r: 140, sweep: 240, start: -35, color: "#d97a5e", o: 0.2, d: 0.6, ring: "inner" },
+  { r: 220, sweep: 265, start: 130, color: "#d97a5e", o: 0.16, d: 0.75, ring: "inner" },
+  { r: 310, sweep: 205, start: 210, color: "#3d2c29", o: 0.12, d: 0.9, ring: "outer" },
+  { r: 400, sweep: 250, start: 75, color: "#d97a5e", o: 0.14, d: 1.05, ring: "outer" },
+  { r: 470, sweep: 220, start: 300, color: "#d97a5e", o: 0.1, d: 1.2, ring: "outer" },
+] as const;
+
+function DawnArcGroup({ ring }: { ring: "inner" | "outer" }) {
+  return (
+    <g className={ring === "inner" ? "dawn-rays-inner" : "dawn-rays-outer"}>
+      {DAWN_ARCS.filter((arc) => arc.ring === ring).map((arc) => (
+        <circle
+          key={arc.r}
+          className="dawn-rays-arc"
+          cx="500"
+          cy="500"
+          r={arc.r}
+          pathLength={360}
+          stroke={arc.color}
+          strokeOpacity={arc.o}
+          strokeWidth="1"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          strokeDasharray={`${arc.sweep} 360`}
+          transform={`rotate(${arc.start} 500 500)`}
+          style={
+            {
+              "--sweep": arc.sweep,
+              animationDelay: `${arc.d}s`,
+            } as React.CSSProperties
+          }
+        />
+      ))}
+    </g>
+  );
+}
+
 function MaskedLine({
   children,
   delay,
@@ -86,37 +125,8 @@ export default function Hero() {
         viewBox="0 0 1000 1000"
         fill="none"
       >
-        <g className="dawn-rays-group">
-          {[
-            { r: 140, sweep: 240, start: -35, color: "#d97a5e", o: 0.2, d: 0.6 },
-            { r: 220, sweep: 265, start: 130, color: "#d97a5e", o: 0.16, d: 0.75 },
-            { r: 310, sweep: 205, start: 210, color: "#3d2c29", o: 0.12, d: 0.9 },
-            { r: 400, sweep: 250, start: 75, color: "#d97a5e", o: 0.14, d: 1.05 },
-            { r: 470, sweep: 220, start: 300, color: "#d97a5e", o: 0.1, d: 1.2 },
-          ].map((arc) => (
-            <circle
-              key={arc.r}
-              className="dawn-rays-arc"
-              cx="500"
-              cy="500"
-              r={arc.r}
-              pathLength={360}
-              stroke={arc.color}
-              strokeOpacity={arc.o}
-              strokeWidth="1"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-              strokeDasharray={`${arc.sweep} 360`}
-              transform={`rotate(${arc.start} 500 500)`}
-              style={
-                {
-                  "--sweep": arc.sweep,
-                  animationDelay: `${arc.d}s`,
-                } as React.CSSProperties
-              }
-            />
-          ))}
-        </g>
+        <DawnArcGroup ring="outer" />
+        <DawnArcGroup ring="inner" />
       </svg>
 
       {/* hero portrait, dissolving into the pre-dawn light on the right */}

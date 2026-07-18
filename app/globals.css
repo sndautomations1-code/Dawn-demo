@@ -130,10 +130,20 @@ button:focus-visible {
 
 /* ---- Dawn rays: slow rotation + staggered draw-in, motion-safe only ---- */
 @media (prefers-reduced-motion: no-preference) {
-  .dawn-rays-group {
+  .dawn-rays-outer,
+  .dawn-rays-inner {
+    /* view-box origin puts the axis at the arcs' exact common center
+       (500, 500), so the counter-rotation never wobbles off-axis */
     transform-box: view-box;
     transform-origin: 50% 50%;
-    animation: rays-rotate 110s linear infinite;
+  }
+
+  .dawn-rays-outer {
+    animation: rays-rotate 60s linear infinite;
+  }
+
+  .dawn-rays-inner {
+    animation: rays-rotate-ccw 45s linear infinite;
   }
 
   .dawn-rays-arc {
@@ -147,6 +157,12 @@ button:focus-visible {
 @keyframes rays-rotate {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rays-rotate-ccw {
+  to {
+    transform: rotate(-360deg);
   }
 }
 
