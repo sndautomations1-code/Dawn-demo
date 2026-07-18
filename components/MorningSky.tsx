@@ -52,7 +52,7 @@ const CLOUD_FILL = (o1: number, o2: number, o3: number, tint = 0) =>
 const CLOUDS = [
   { left: "60%", top: "8%", width: "min(13vw, 12rem)", blur: 22, fill: CLOUD_FILL(0.68, 0.72, 0.62, 0.07), outline: "a", drift: "26px", dur: "46s", delay: "-12s" },
   { left: "44%", top: "6%", width: "min(11vw, 10rem)", blur: 24, fill: CLOUD_FILL(0.62, 0.68, 0.58, 0.05), outline: "b", drift: "-22px", dur: "58s", delay: "-30s" },
-  { left: "42%", top: "56%", width: "min(19vw, 17rem)", blur: 30, fill: CLOUD_FILL(0.6, 0.66, 0.55), outline: "c", drift: "30px", dur: "66s", delay: "-8s" },
+  { left: "max(36%, 31rem)", top: "56%", width: "min(19vw, 17rem)", blur: 30, fill: CLOUD_FILL(0.6, 0.66, 0.55), outline: "c", drift: "30px", dur: "66s", delay: "-8s" },
   { left: "67%", top: "80%", width: "min(30vw, 27rem)", blur: 38, fill: CLOUD_FILL(0.52, 0.58, 0.5), drift: "-34px", dur: "74s", delay: "-40s" },
   { left: "33%", top: "83%", width: "min(26vw, 24rem)", blur: 40, fill: CLOUD_FILL(0.5, 0.55, 0.48), drift: "28px", dur: "82s", delay: "-20s" },
   { left: "44%", top: "64%", width: "min(15vw, 14rem)", blur: 26, fill: CLOUD_FILL(0.66, 0.7, 0.6), outline: "d", drift: "22px", dur: "50s", delay: "-26s" },

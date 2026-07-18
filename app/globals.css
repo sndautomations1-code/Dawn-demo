@@ -132,10 +132,11 @@ button:focus-visible {
 @media (prefers-reduced-motion: no-preference) {
   .dawn-rays-outer,
   .dawn-rays-inner {
-    /* view-box origin puts the axis at the arcs' exact common center
-       (500, 500), so the counter-rotation never wobbles off-axis */
-    transform-box: view-box;
-    transform-origin: 50% 50%;
+    /* Each group's bounding box is a full circle centered on (500, 500),
+       so fill-box + center pivots exactly on the arcs' common center. */
+    transform-box: fill-box;
+    transform-origin: center;
+    will-change: transform;
   }
 
   .dawn-rays-outer {
@@ -154,15 +155,22 @@ button:focus-visible {
   }
 }
 
+/* translateZ(0) keeps the rotating groups on their own GPU layers */
 @keyframes rays-rotate {
+  from {
+    transform: translateZ(0) rotate(0deg);
+  }
   to {
-    transform: rotate(360deg);
+    transform: translateZ(0) rotate(360deg);
   }
 }
 
 @keyframes rays-rotate-ccw {
+  from {
+    transform: translateZ(0) rotate(0deg);
+  }
   to {
-    transform: rotate(-360deg);
+    transform: translateZ(0) rotate(-360deg);
   }
 }
 
