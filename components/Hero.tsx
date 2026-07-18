@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -73,6 +74,40 @@ export default function Hero() {
           transition={{ duration: 64, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
+
+      {/* hero portrait, dissolving into the pre-dawn light on the right */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-[9svh] -z-[5] hidden w-[min(44vw,42rem)] select-none min-[900px]:block"
+        initial={reduceMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, delay: 0.7, ease: EASE }}
+      >
+        {/* peach glow: the light source behind her face and shoulder */}
+        <div
+          className="absolute left-[12%] top-[6%] h-[62%] w-[74%] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,212,196,0.85) 0%, rgba(217,122,94,0.32) 48%, rgba(217,122,94,0) 72%)",
+            filter: "blur(90px)",
+          }}
+        />
+        <Image
+          src="/dawn-portrait-blend.png"
+          alt=""
+          width={750}
+          height={826}
+          priority
+          className="relative h-auto w-full"
+          style={{
+            filter: "saturate(0.74) brightness(1.08) contrast(0.95)",
+            WebkitMaskImage:
+              "radial-gradient(115% 115% at 42% 32%, #000 52%, transparent 93%)",
+            maskImage:
+              "radial-gradient(115% 115% at 42% 32%, #000 52%, transparent 93%)",
+          }}
+        />
+      </motion.div>
 
       <motion.p className="kicker pt-10 text-ink/70 sm:pt-12" {...fadeIn(1.35)}>
         Dawn — Laser &amp; Skin Resurfacing
