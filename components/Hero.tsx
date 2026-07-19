@@ -161,11 +161,16 @@ export default function Hero() {
             reduceMotion={reduceMotion}
             className="text-[clamp(3.4rem,11.5vw,12.5rem)] uppercase leading-[0.94]"
           >
-            Your skin,
+            <span className="gradient-word">Awaken</span>
           </MaskedLine>
-          {/* 1.2x the old serif size at 1.05/1.2 line-height: the line box
-              height is identical, so nothing below shifts */}
-          <span className="script-word block pl-[16vw] text-[clamp(2.52rem,8.4vw,8.7rem)] leading-[0.875] md:pl-[24vw]">
+          <MaskedLine
+            delay={0.39}
+            reduceMotion={reduceMotion}
+            className="text-[clamp(3.4rem,11.5vw,12.5rem)] uppercase leading-[0.94]"
+          >
+            Your skin&rsquo;s
+          </MaskedLine>
+          <span className="script-word block pl-[16vw] pt-[0.08em] text-[clamp(2.52rem,8.4vw,8.7rem)] leading-[0.875] md:pl-[24vw]">
             <motion.span
               className="-my-[0.4em] inline-block py-[0.4em]"
               initial={
@@ -176,10 +181,10 @@ export default function Hero() {
               animate={{ clipPath: "inset(-10% -2% -10% -2%)", opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.95, ease: EASE }}
             >
-              starting
+              true dawn<span className="text-accent">.</span>
             </motion.span>
           </span>
-          {/* horizon line drawing itself under “starting” */}
+          {/* horizon line drawing itself under “true dawn.” */}
           <span
             aria-hidden
             className="block pl-[16vw] pt-1 md:pl-[24vw]"
@@ -192,22 +197,14 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 1.05, ease: EASE }}
             />
           </span>
-          <MaskedLine
-            delay={0.39}
-            reduceMotion={reduceMotion}
-            className="text-[clamp(3.4rem,11.5vw,12.5rem)] uppercase leading-[0.94]"
-          >
-            <span className="gradient-word">over</span>
-            <span className="text-accent">.</span>
-          </MaskedLine>
         </h1>
 
         <motion.p
           className="mt-10 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg"
           {...fadeIn(1.45)}
         >
-          A quiet new beginning for your skin — laser and resurfacing
-          treatments built around renewal, not correction.
+          Next-generation medical aesthetics and advanced laser treatments,
+          tailored to reveal your ultimate radiance.
         </motion.p>
 
         <motion.div className="mt-9" {...fadeIn(1.55)}>
@@ -215,7 +212,7 @@ export default function Hero() {
             href="https://splendessa.com"
             className="cta-pill px-9 py-4 text-sm font-medium"
           >
-            Book your session
+            Reserve an Experience
           </a>
         </motion.div>
       </div>
