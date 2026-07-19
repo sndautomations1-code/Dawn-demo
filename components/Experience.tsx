@@ -65,28 +65,30 @@ export default function Experience() {
       ref={ref}
       className="relative overflow-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
     >
-      {/* botanical tree line-art rising behind both photos: low branches
-          slip under the images, crown reaches toward the corner foliage.
-          Displayed well under its 944px native width so it stays crisp. */}
+      {/* botanical tree line-art rising behind both photos: the crown
+          fills the upper zone, low branches slip under the images, and
+          the trunk runs on down behind the pull quote. Displayed well
+          under the art's 1888px native width so it stays crisp; only the
+          trunk's last stretch fades so it never hard-cuts. */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 -z-10 hidden -translate-x-1/2 select-none opacity-[0.45] md:block"
         style={{
-          top: "clamp(6rem, 9vw, 10.5rem)",
-          width: "clamp(400px, 39vw, 560px)",
+          top: "clamp(0rem, 0.5vw, 0.5rem)",
+          width: "clamp(560px, 72vw, 1060px)",
           mixBlendMode: "multiply",
           maskImage:
-            "linear-gradient(to bottom, black 78%, transparent 100%)",
+            "linear-gradient(to bottom, black 88%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 78%, transparent 100%)",
+            "linear-gradient(to bottom, black 88%, transparent 100%)",
         }}
       >
         <Image
           src="/decor-tree.png"
           alt=""
-          width={944}
-          height={1136}
-          sizes="(min-width: 1440px) 560px, 39vw"
+          width={1888}
+          height={2272}
+          sizes="(min-width: 1472px) 1060px, 72vw"
           className="h-auto w-full"
         />
       </div>
