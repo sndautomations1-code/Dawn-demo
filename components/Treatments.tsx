@@ -103,7 +103,7 @@ export default function Treatments() {
           src="/decor-left.png"
           alt=""
           fill
-          sizes="320px"
+          sizes="2048px"
           className="object-cover object-left"
         />
       </div>
@@ -116,7 +116,7 @@ export default function Treatments() {
           src="/decor-right.png"
           alt=""
           fill
-          sizes="320px"
+          sizes="2048px"
           className="object-cover object-right"
         />
       </div>
