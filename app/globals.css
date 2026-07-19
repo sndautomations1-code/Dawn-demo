@@ -180,58 +180,6 @@ button:focus-visible {
   transform: scaleX(1);
 }
 
-/* ---- Dawn rays: slow rotation + staggered draw-in, motion-safe only ---- */
-@media (prefers-reduced-motion: no-preference) {
-  .dawn-rays-outer,
-  .dawn-rays-inner {
-    /* Each group's bounding box is a full circle centered on (500, 500),
-       so fill-box + center pivots exactly on the arcs' common center. */
-    transform-box: fill-box;
-    transform-origin: center;
-    will-change: transform;
-  }
-
-  .dawn-rays-outer {
-    animation: rays-rotate 60s linear infinite;
-  }
-
-  .dawn-rays-inner {
-    animation: rays-rotate-ccw 45s linear infinite;
-  }
-
-  .dawn-rays-arc {
-    stroke-dashoffset: var(--sweep);
-    /* per-arc animation-delay comes from the inline style, which wins over
-       the shorthand reset here */
-    animation: rays-draw 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-}
-
-/* translateZ(0) keeps the rotating groups on their own GPU layers */
-@keyframes rays-rotate {
-  from {
-    transform: translateZ(0) rotate(0deg);
-  }
-  to {
-    transform: translateZ(0) rotate(360deg);
-  }
-}
-
-@keyframes rays-rotate-ccw {
-  from {
-    transform: translateZ(0) rotate(0deg);
-  }
-  to {
-    transform: translateZ(0) rotate(-360deg);
-  }
-}
-
-@keyframes rays-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 /* ---- Morning sky: cloud drift + sun halo pulse, motion-safe only ---- */
 @media (prefers-reduced-motion: no-preference) {
   .sky-cloud {
