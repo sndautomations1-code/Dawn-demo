@@ -11,27 +11,30 @@ const TREATMENTS = [
     description: "A gentle enzyme and light peel — your introduction to resurfacing.",
     duration: "45 min",
     price: "$180",
-    /* soft morning light on calm water */
+    /* warm facial mask brushed on in a serene spa setting */
     image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600",
+    alt: "Client relaxing while a warm facial mask is gently brushed onto her skin at a spa",
   },
   {
     name: "Fractional Laser Resurfacing",
     description: "Targeted collagen renewal for texture and fine lines.",
     duration: "60 min",
     price: "$650",
-    /* a precise blade of light across a warm wall */
+    /* handheld resurfacing device gliding over a client's cheek in-clinic */
     image:
-      "https://images.unsplash.com/photo-1685955978440-1189dbe6a0d4?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1761819920857-7edc5e808fd3?auto=format&fit=crop&q=80&w=600",
+    alt: "Clinician guiding a precision skin-resurfacing device across a client's cheek",
   },
   {
     name: "IPL Photofacial",
     description: "Light-based correction of sun damage and uneven tone.",
     duration: "45 min",
     price: "$425",
-    /* warm dusk-gradient glow */
+    /* glowing, even-toned skin washed in soft warm light */
     image:
-      "https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1675773051474-55c4b7d2cf53?auto=format&fit=crop&q=80&w=600",
+    alt: "Close-up of luminous, even-toned skin bathed in soft warm light",
   },
   {
     name: "CO₂ Deep Resurfacing",
@@ -41,15 +44,17 @@ const TREATMENTS = [
     /* macro serum texture with air bubbles */
     image:
       "https://images.unsplash.com/photo-1748543668687-624e058c367c?auto=format&fit=crop&q=80&w=600",
+    alt: "Golden resurfacing serum in overlapping droplet discs, photographed up close",
   },
   {
     name: "Laser Skin Tightening",
     description: "Gradual firming through gentle dermal heating.",
     duration: "60 min",
     price: "$550",
-    /* clean terracotta architectural curves */
+    /* golden close-up of firm, lifted skin */
     image:
-      "https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1624819318229-f006595a4993?auto=format&fit=crop&q=80&w=600",
+    alt: "Close-up of firm, radiant skin along the cheek and jawline in golden light",
   },
   {
     name: "The Morning After Peel",
@@ -59,6 +64,7 @@ const TREATMENTS = [
     /* blush botanical macro, fresh and soft */
     image:
       "https://images.unsplash.com/photo-1651154872905-b0f53800de90?auto=format&fit=crop&q=80&w=600",
+    alt: "Soft blush flower in delicate morning light",
   },
 ];
 
@@ -91,7 +97,7 @@ export default function Treatments() {
               <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-xl">
                 <Image
                   src={t.image}
-                  alt=""
+                  alt={t.alt}
                   fill
                   sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
