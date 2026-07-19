@@ -63,8 +63,34 @@ export default function Experience() {
     <section
       id="ritual"
       ref={ref}
-      className="overflow-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
+      className="relative overflow-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
     >
+      {/* botanical tree line-art rising behind both photos: low branches
+          slip under the images, crown reaches toward the corner foliage.
+          Displayed well under its 944px native width so it stays crisp. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 -z-10 hidden -translate-x-1/2 select-none opacity-[0.45] md:block"
+        style={{
+          top: "clamp(6rem, 9vw, 10.5rem)",
+          width: "clamp(400px, 39vw, 560px)",
+          mixBlendMode: "multiply",
+          maskImage:
+            "linear-gradient(to bottom, black 78%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 78%, transparent 100%)",
+        }}
+      >
+        <Image
+          src="/decor-tree.png"
+          alt=""
+          width={944}
+          height={1136}
+          sizes="(min-width: 1440px) 560px, 39vw"
+          className="h-auto w-full"
+        />
+      </div>
+
       <div className="mx-auto grid max-w-6xl grid-cols-12 gap-x-6 gap-y-16">
         <div className="col-span-12 lg:col-span-5">
           <p className="kicker text-ink/60">The Experience — Golden Hour</p>
