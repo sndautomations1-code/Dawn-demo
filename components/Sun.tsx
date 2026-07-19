@@ -34,7 +34,7 @@ export default function Sun() {
         style={
           reduceMotion
             ? { y: "-60vh", scale: 1, opacity: 0.9 }
-            : { y, scale, opacity }
+            : { y, scale, opacity, willChange: "transform, opacity" }
         }
       >
         {/* halo */}

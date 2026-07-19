@@ -60,6 +60,7 @@ export default function Hero() {
             background:
               "radial-gradient(circle, rgba(226,220,236,0.6) 0%, rgba(226,220,236,0) 70%)",
             filter: "blur(50px)",
+            willChange: reduceMotion ? undefined : "transform",
           }}
           animate={reduceMotion ? undefined : { x: [0, -45, 0], y: [0, 35, 0] }}
           transition={{ duration: 75, repeat: Infinity, ease: "easeInOut" }}
@@ -70,6 +71,7 @@ export default function Hero() {
             background:
               "radial-gradient(circle, rgba(255,232,224,0.75) 0%, rgba(255,232,224,0) 70%)",
             filter: "blur(50px)",
+            willChange: reduceMotion ? undefined : "transform",
           }}
           animate={reduceMotion ? undefined : { x: [0, 50, 0], y: [0, -30, 0] }}
           transition={{ duration: 88, repeat: Infinity, ease: "easeInOut" }}
@@ -80,6 +82,7 @@ export default function Hero() {
             background:
               "radial-gradient(circle, rgba(255,212,196,0.5) 0%, rgba(255,212,196,0) 70%)",
             filter: "blur(50px)",
+            willChange: reduceMotion ? undefined : "transform",
           }}
           animate={reduceMotion ? undefined : { x: [0, -35, 0], y: [0, -40, 0] }}
           transition={{ duration: 64, repeat: Infinity, ease: "easeInOut" }}
@@ -136,6 +139,7 @@ export default function Hero() {
           width={750}
           height={826}
           priority
+          sizes="(min-width: 1536px) 42rem, (min-width: 900px) 44vw, 0px"
           className="relative h-auto w-full"
           style={{
             filter: "saturate(0.74) brightness(1.08) contrast(0.95)",

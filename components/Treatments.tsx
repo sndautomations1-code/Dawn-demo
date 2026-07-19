@@ -63,7 +63,7 @@ export default function Treatments() {
           {TREATMENTS.map((t, i) => (
             <motion.li
               key={t.name}
-              className={`group rounded-3xl border border-line/80 bg-cream/40 p-8 backdrop-blur-sm transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:border-accent/60 hover:shadow-[0_24px_50px_-30px_rgba(217,122,94,0.4)] ${RISE[i % 3]} ${SWAY[i % 2]}`}
+              className={`group rounded-3xl border border-line/80 bg-cream/60 p-8 transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:border-accent/60 hover:shadow-[0_24px_50px_-30px_rgba(217,122,94,0.4)] ${RISE[i % 3]} ${SWAY[i % 2]}`}
               initial={reduceMotion ? false : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px 0px" }}

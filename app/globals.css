@@ -96,27 +96,11 @@ button:focus-visible {
 }
 
 /* ---- The one gradient-filled word ---- */
-@property --sunrise-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 115deg;
-}
-
-@keyframes sunrise-turn {
-  0% {
-    --sunrise-angle: 95deg;
-  }
-  50% {
-    --sunrise-angle: 145deg;
-  }
-  100% {
-    --sunrise-angle: 95deg;
-  }
-}
-
+/* Static gradient: animating the angle repainted the whole headline on
+   every frame, forever, for a barely perceptible drift. */
 .gradient-word {
   background-image: linear-gradient(
-    var(--sunrise-angle, 115deg),
+    115deg,
     #ffd4c4 8%,
     #e89673 55%,
     #d97a5e 100%
@@ -124,7 +108,6 @@ button:focus-visible {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: sunrise-turn 20s ease-in-out infinite;
 }
 
 /* ---- CTA pill: soft fill-wipe on hover ---- */
@@ -187,7 +170,10 @@ button:focus-visible {
       infinite alternate;
   }
 
+  /* Pulse via element opacity (compositor) instead of stroke-opacity
+     (repaint): 0.25 stroke × 0.6–1 opacity = the same 0.15–0.25 range. */
   .sky-halo {
+    stroke-opacity: 0.25;
     animation: halo-pulse 8s ease-in-out var(--halo-delay, 0s) infinite
       alternate;
   }
@@ -205,10 +191,10 @@ button:focus-visible {
 
 @keyframes halo-pulse {
   from {
-    stroke-opacity: 0.15;
+    opacity: 0.6;
   }
   to {
-    stroke-opacity: 0.25;
+    opacity: 1;
   }
 }
 
@@ -216,9 +202,6 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .gradient-word {
-    animation: none;
   }
   .cta-pill,
   .cta-pill::before,
