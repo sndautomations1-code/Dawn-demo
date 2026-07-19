@@ -5,6 +5,22 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+/* Edge decor dissolves toward the content and at top/bottom so no
+   rectangular image boundary is ever visible; multiply lets the beige
+   art sink into the sunrise backdrop. */
+const DECOR_MASK_LEFT =
+  "linear-gradient(to right, black 45%, transparent 96%), linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)";
+const DECOR_MASK_RIGHT =
+  "linear-gradient(to left, black 45%, transparent 96%), linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)";
+
+const decorStyle = (mask: string): React.CSSProperties => ({
+  maskImage: mask,
+  maskComposite: "intersect",
+  WebkitMaskImage: mask,
+  WebkitMaskComposite: "source-in",
+  mixBlendMode: "multiply",
+});
+
 const TREATMENTS = [
   {
     name: "The First Light Facial",
@@ -74,13 +90,14 @@ export default function Treatments() {
   return (
     <section
       id="treatments"
-      className="relative isolate overflow-x-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
+      className="relative overflow-x-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
     >
       {/* botanical line-art decor hugging the section edges, behind all
           content; hidden on mobile where there's no room to breathe */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 -left-14 -z-10 hidden w-64 select-none opacity-60 md:block lg:w-80"
+        className="pointer-events-none absolute inset-y-0 -left-14 -z-10 hidden w-64 select-none opacity-50 md:block lg:w-80"
+        style={decorStyle(DECOR_MASK_LEFT)}
       >
         <Image
           src="/decor-left.png"
@@ -92,7 +109,8 @@ export default function Treatments() {
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 -right-14 -z-10 hidden w-64 select-none opacity-60 md:block lg:w-80"
+        className="pointer-events-none absolute inset-y-0 -right-14 -z-10 hidden w-64 select-none opacity-50 md:block lg:w-80"
+        style={decorStyle(DECOR_MASK_RIGHT)}
       >
         <Image
           src="/decor-right.png"
