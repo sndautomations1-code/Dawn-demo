@@ -12,17 +12,6 @@ import HorizonUnderline from "./HorizonUnderline";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/* Abstract light compositions, painted in CSS. */
-const PANELS = {
-  mist: {
-    background: [
-      "radial-gradient(circle at 22% 18%, rgba(250,250,248,0.9) 0%, rgba(250,250,248,0) 55%)",
-      "radial-gradient(circle at 78% 80%, rgba(255,212,196,0.7) 0%, rgba(255,212,196,0) 60%)",
-      "linear-gradient(160deg, #fbf7f6 0%, #ffe8e0 55%, #fbd8c6 100%)",
-    ].join(", "),
-  },
-};
-
 const PANEL_SHADOW = "0 30px 70px -35px rgba(217,122,94,0.35)";
 
 function Reveal({
@@ -63,13 +52,15 @@ export default function Experience() {
     <section
       id="ritual"
       ref={ref}
-      className="relative overflow-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
+      className="relative overflow-x-clip px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
     >
       {/* botanical tree line-art rising behind both photos: the crown
           fills the upper zone, low branches slip under the images, and
-          the trunk runs on down behind the pull quote. Displayed well
-          under the art's 1888px native width so it stays crisp; only the
-          trunk's last stretch fades so it never hard-cuts. */}
+          the trunk runs on past the section's bottom edge into the CTA
+          below (overflow-x-clip leaves vertical overflow visible).
+          Displayed well under the art's 1888px native width so it stays
+          crisp; only the trunk's last stretch fades so it never
+          hard-cuts. */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 -z-10 hidden -translate-x-1/2 select-none opacity-[0.45] md:block"
@@ -159,38 +150,6 @@ export default function Experience() {
           </motion.div>
         </Reveal>
 
-        {/* pull quote */}
-        <Reveal className="col-span-12 py-6 lg:col-span-10 lg:col-start-2">
-          <blockquote className="font-display text-3xl font-light italic leading-snug tracking-[-0.01em] text-ink sm:text-5xl">
-            Every morning, skin begins again.
-          </blockquote>
-        </Reveal>
-
-        {/* second text block, left */}
-        <Reveal className="col-span-12 self-center sm:col-span-5 lg:col-span-4">
-          <p className="max-w-[38ch] text-base leading-relaxed text-ink/80 sm:text-lg">
-            Resurfacing is not about erasing. It clears what the years have
-            left behind, so newer skin can surface{" "}
-            <HorizonUnderline>on its own schedule</HorizonUnderline>. You leave
-            with a plan, a calm face, and somewhere to be tomorrow.
-          </p>
-        </Reveal>
-
-        {/* wide mist panel */}
-        <Reveal
-          delay={0.15}
-          className="col-span-12 sm:col-span-7 lg:col-span-7 lg:col-start-6"
-        >
-          <motion.div
-            aria-hidden
-            className="aspect-[16/10] w-full rounded-[2.5rem]"
-            style={{
-              ...PANELS.mist,
-              boxShadow: PANEL_SHADOW,
-              y: reduceMotion ? 0 : driftCounter,
-            }}
-          />
-        </Reveal>
       </div>
     </section>
   );
