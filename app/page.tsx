@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import DawnArcs from "@/components/DawnArcs";
 import SunriseBackground from "@/components/SunriseBackground";
 import Sun from "@/components/Sun";
 import GrainOverlay from "@/components/GrainOverlay";
@@ -16,8 +17,13 @@ export default function Home() {
       <GrainOverlay />
       <Navbar />
       <main>
-        <Hero />
-        <Treatments />
+        {/* shared wrapper so the dawn arcs can span the hero/treatments
+            boundary instead of being clipped inside the hero */}
+        <div className="relative">
+          <DawnArcs />
+          <Hero />
+          <Treatments />
+        </div>
         <Experience />
         <BookingCTA />
       </main>

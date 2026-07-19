@@ -7,15 +7,6 @@ import MorningSky from "./MorningSky";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/* Static concentric dawn arcs; sweep/start shape each partial circle. */
-const DAWN_ARCS = [
-  { r: 140, sweep: 240, start: -35, color: "#d97a5e", o: 0.2 },
-  { r: 220, sweep: 265, start: 130, color: "#d97a5e", o: 0.16 },
-  { r: 310, sweep: 205, start: 210, color: "#3d2c29", o: 0.12 },
-  { r: 400, sweep: 250, start: 75, color: "#d97a5e", o: 0.14 },
-  { r: 470, sweep: 220, start: 300, color: "#d97a5e", o: 0.1 },
-] as const;
-
 function MaskedLine({
   children,
   delay,
@@ -52,8 +43,19 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-hidden px-6 sm:px-10 lg:px-16">
-      {/* ambient pre-dawn blobs, drifting extremely slowly */}
-      <div aria-hidden className="absolute inset-0 -z-10">
+      {/* ambient pre-dawn blobs, drifting extremely slowly; the layer
+          fades out over the hero's last stretch so no blurred glow is
+          sliced by the section's clipped bottom edge */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          maskImage:
+            "linear-gradient(to bottom, black calc(100% - 14rem), transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black calc(100% - 14rem), transparent)",
+        }}
+      >
         <motion.div
           className="absolute -right-[10%] -top-[12%] h-[55vmin] w-[55vmin] rounded-full"
           style={{
@@ -90,31 +92,6 @@ export default function Hero() {
       </div>
 
       <MorningSky />
-
-      {/* dawn rays: thin concentric arcs rising behind the portrait */}
-      <svg
-        aria-hidden
-        className="dawn-rays pointer-events-none absolute left-[75%] top-[70%] -z-[6] hidden aspect-square w-[min(56vw,53rem)] -translate-x-1/2 -translate-y-1/2 select-none min-[900px]:block"
-        viewBox="0 0 1000 1000"
-        fill="none"
-      >
-        {DAWN_ARCS.map((arc) => (
-          <circle
-            key={arc.r}
-            cx="500"
-            cy="500"
-            r={arc.r}
-            pathLength={360}
-            stroke={arc.color}
-            strokeOpacity={arc.o}
-            strokeWidth="1"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            strokeDasharray={`${arc.sweep} 360`}
-            transform={`rotate(${arc.start} 500 500)`}
-          />
-        ))}
-      </svg>
 
       {/* hero portrait, dissolving into the pre-dawn light on the right */}
       <motion.div
