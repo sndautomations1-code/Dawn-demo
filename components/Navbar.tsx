@@ -37,12 +37,9 @@ export default function Navbar() {
         aria-label="Main"
         className="flex h-[76px] items-center justify-between px-6 sm:px-10 lg:px-16"
       >
-        <a href="#" className="flex items-baseline gap-3 text-ink">
-          <span className="font-display text-[1.2rem] tracking-[0.18em]">
+        <a href="#" className="text-ink">
+          <span className="logo-word font-display text-[1.5rem] tracking-[0.32em]">
             DAWN
-          </span>
-          <span className="kicker hidden text-[0.65rem] text-ink/60 min-[820px]:inline">
-            — Laser &amp; Skin Resurfacing
           </span>
         </a>
 

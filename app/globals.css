@@ -74,6 +74,19 @@ button:focus-visible {
   transform: scaleX(1);
 }
 
+/* ---- Navbar wordmark: ink warming into coral, echoing the hero's "over" ---- */
+.logo-word {
+  background-image: linear-gradient(
+    100deg,
+    var(--ink) 0%,
+    var(--ink) 40%,
+    #e08b6d 110%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ---- Kicker label ---- */
 .kicker {
   font-family: var(--font-jost), sans-serif;
