@@ -72,7 +72,37 @@ export default function Treatments() {
   const reduceMotion = useReducedMotion() ?? false;
 
   return (
-    <section id="treatments" className="px-6 py-28 sm:px-10 sm:py-36 lg:px-16">
+    <section
+      id="treatments"
+      className="relative isolate overflow-x-hidden px-6 py-28 sm:px-10 sm:py-36 lg:px-16"
+    >
+      {/* botanical line-art decor hugging the section edges, behind all
+          content; hidden on mobile where there's no room to breathe */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 -left-14 -z-10 hidden w-64 select-none opacity-60 md:block lg:w-80"
+      >
+        <Image
+          src="/decor-left.png"
+          alt=""
+          fill
+          sizes="320px"
+          className="object-cover object-left"
+        />
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 -right-14 -z-10 hidden w-64 select-none opacity-60 md:block lg:w-80"
+      >
+        <Image
+          src="/decor-right.png"
+          alt=""
+          fill
+          sizes="320px"
+          className="object-cover object-right"
+        />
+      </div>
+
       <div className="mx-auto max-w-6xl">
         <p className="kicker text-ink/60">Treatments — First Light</p>
         <h2 className="mt-5 max-w-2xl font-display text-4xl tracking-[-0.02em] text-ink sm:text-5xl">
