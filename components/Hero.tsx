@@ -7,60 +7,6 @@ import MorningSky from "./MorningSky";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/* Medical trust badges beside the script line; thin single-stroke icons
-   drawn inline to match the site's hairline SVG language. */
-const TRUST_BADGES = [
-  {
-    label: "Medical Grade Lasers",
-    icon: (
-      <>
-        <path d="M12 3.2 18.6 5.8v5.1c0 4.3-2.8 7.2-6.6 8.7-3.8-1.5-6.6-4.4-6.6-8.7V5.8L12 3.2Z" />
-        <path d="m12 8.4.85 2.15 2.15.85-2.15.85L12 14.4l-.85-2.15L9 11.4l2.15-.85L12 8.4Z" />
-      </>
-    ),
-  },
-  {
-    label: "Biometric Diagnostics",
-    icon: (
-      <>
-        <path d="M8.5 4c0 5.3 7 10.7 7 16" />
-        <path d="M15.5 4c0 5.3-7 10.7-7 16" />
-        <path d="M8.8 6.5h6.4" />
-        <path d="M8.8 17.5h6.4" />
-        <path d="M10.4 10.5h3.2" />
-        <path d="M10.4 13.5h3.2" />
-      </>
-    ),
-  },
-  {
-    label: "Board-Certified Specialists",
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="8.3" />
-        <path d="M12 8.8v6.4" />
-        <path d="M8.8 12h6.4" />
-      </>
-    ),
-  },
-];
-
-function BadgeIcon({ children }: { children: React.ReactNode }) {
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.25}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-5 w-5 shrink-0"
-    >
-      {children}
-    </svg>
-  );
-}
-
 /* Static concentric dawn arcs; sweep/start shape each partial circle. */
 const DAWN_ARCS = [
   { r: 140, sweep: 240, start: -35, color: "#d97a5e", o: 0.2 },
@@ -229,25 +175,6 @@ export default function Hero() {
             Your skin&rsquo;s
           </MaskedLine>
           <span className="script-word relative block pl-[16vw] pt-[0.08em] text-[clamp(2.52rem,8.4vw,8.7rem)] leading-[0.875] md:pl-[24vw]">
-            {/* trust badges fill the indent left of the script line;
-                aria-hidden so they never read as part of the heading —
-                the accessible copy is the list after the h1 */}
-            <span
-              aria-hidden
-              className="absolute left-0 top-1/2 hidden -translate-y-1/2 min-[900px]:block"
-            >
-              <motion.span className="flex flex-col gap-4" {...fadeIn(1.25)}>
-                {TRUST_BADGES.map((badge) => (
-                  <span
-                    key={badge.label}
-                    className="flex items-center gap-3 whitespace-nowrap font-sans text-[0.8rem] font-normal leading-none tracking-normal text-ink/80"
-                  >
-                    <BadgeIcon>{badge.icon}</BadgeIcon>
-                    {badge.label}
-                  </span>
-                ))}
-              </motion.span>
-            </span>
             <motion.span
               className="-my-[0.4em] inline-block py-[0.4em]"
               initial={
@@ -275,24 +202,6 @@ export default function Hero() {
             />
           </span>
         </h1>
-
-        {/* the real (accessible) badge list: visible stacked below the
-            headline on small screens, screen-reader-only on desktop where
-            the decorative copy beside the script line takes over */}
-        <motion.ul
-          className="mt-10 flex list-none flex-col gap-4 min-[900px]:sr-only"
-          {...fadeIn(1.35)}
-        >
-          {TRUST_BADGES.map((badge) => (
-            <li
-              key={badge.label}
-              className="flex items-center gap-3 text-[0.8rem] leading-none text-ink/80"
-            >
-              <BadgeIcon>{badge.icon}</BadgeIcon>
-              {badge.label}
-            </li>
-          ))}
-        </motion.ul>
 
         <motion.p
           className="mt-10 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg"

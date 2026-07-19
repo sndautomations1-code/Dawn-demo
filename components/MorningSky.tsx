@@ -60,6 +60,8 @@ const CLOUDS = [
   { left: "58%", top: "35%", width: "min(17vw, 16rem)", blur: 26, fill: CLOUD_FILL(0.64, 0.68, 0.58), drift: "24px", dur: "62s", delay: "-34s" },
   { left: "28%", top: "77%", width: "min(24vw, 21.5rem)", blur: 34, fill: CLOUD_FILL(0.56, 0.62, 0.54), outline: "b", drift: "-30px", dur: "78s", delay: "-44s" },
   { left: "90%", top: "88%", width: "min(12vw, 11rem)", blur: 28, fill: CLOUD_FILL(0.5, 0.55, 0.48), drift: "18px", dur: "54s", delay: "-10s" },
+  { left: "8%", top: "9%", width: "min(12vw, 11rem)", blur: 24, fill: CLOUD_FILL(0.6, 0.66, 0.56, 0.04), outline: "c", drift: "20px", dur: "60s", delay: "-16s" },
+  { left: "79%", top: "62%", width: "min(21vw, 19rem)", blur: 34, fill: CLOUD_FILL(0.54, 0.6, 0.52), drift: "-24px", dur: "68s", delay: "-24s" },
 ] as const;
 
 
