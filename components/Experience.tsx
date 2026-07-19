@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useReducedMotion,
@@ -13,24 +14,11 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 /* Abstract light compositions, painted in CSS. */
 const PANELS = {
-  horizon: {
-    background: [
-      "radial-gradient(ellipse 90% 38% at 50% 66%, rgba(240,164,128,0.55) 0%, rgba(240,164,128,0) 65%)",
-      "linear-gradient(180deg, #f4eef3 0%, #ffe9e1 38%, #ffd4c4 60%, #f2b598 66%, #ffdfd0 68%, #fff1e9 100%)",
-    ].join(", "),
-  },
   mist: {
     background: [
       "radial-gradient(circle at 22% 18%, rgba(250,250,248,0.9) 0%, rgba(250,250,248,0) 55%)",
       "radial-gradient(circle at 78% 80%, rgba(255,212,196,0.7) 0%, rgba(255,212,196,0) 60%)",
       "linear-gradient(160deg, #fbf7f6 0%, #ffe8e0 55%, #fbd8c6 100%)",
-    ].join(", "),
-  },
-  ember: {
-    background: [
-      "radial-gradient(circle at 50% 82%, rgba(217,122,94,0.55) 0%, rgba(217,122,94,0) 58%)",
-      "radial-gradient(circle at 50% 70%, rgba(255,212,196,0.9) 0%, rgba(255,212,196,0) 70%)",
-      "linear-gradient(180deg, #fff2ea 0%, #ffe4d6 100%)",
     ].join(", "),
   },
 };
@@ -68,7 +56,7 @@ export default function Experience() {
     offset: ["start end", "end start"],
   });
 
-  const drift = useTransform(scrollYProgress, [0, 1], [16, -16]);
+  const drift = useTransform(scrollYProgress, [0, 1], [24, -24]);
   const driftCounter = useTransform(scrollYProgress, [0, 1], [-12, 12]);
 
   return (
@@ -82,17 +70,30 @@ export default function Experience() {
           <p className="kicker text-ink/60">The Experience — Golden Hour</p>
         </div>
 
-        {/* tall horizon panel */}
-        <Reveal className="col-span-12 sm:col-span-7 lg:col-span-6 lg:col-start-1 lg:row-span-2">
-          <motion.div
+        {/* tall treatment-room photo, with the editorial word layered
+            beneath it, drifting out into the left margin */}
+        <Reveal className="relative col-span-12 sm:col-span-7 lg:col-span-6 lg:col-start-1 lg:row-span-2">
+          <span
             aria-hidden
-            className="aspect-[4/5] w-full rounded-[2.5rem]"
+            className="pointer-events-none absolute -left-20 top-[56%] -z-10 hidden select-none whitespace-nowrap font-display text-[clamp(6rem,12vw,12.5rem)] font-light italic leading-none text-[#d97a5e]/10 md:block lg:-left-36"
+          >
+            unhurried
+          </span>
+          <motion.div
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem]"
             style={{
-              ...PANELS.horizon,
               boxShadow: PANEL_SHADOW,
               y: reduceMotion ? 0 : drift,
             }}
-          />
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1651065213855-e6094f99ee65?auto=format&fit=crop&q=80&w=1200"
+              alt="Sunlit spa treatment room with a linen-covered daybed beside a warm bamboo screen"
+              fill
+              sizes="(min-width: 1024px) 45vw, (min-width: 640px) 55vw, 92vw"
+              className="object-cover"
+            />
+          </motion.div>
         </Reveal>
 
         {/* first text block, offset right */}
@@ -108,20 +109,26 @@ export default function Experience() {
           </p>
         </Reveal>
 
-        {/* small ember panel tucked under the text column */}
+        {/* small still-life photo tucked under the text column */}
         <Reveal
           delay={0.1}
           className="col-span-7 col-start-6 sm:col-span-4 sm:col-start-9 lg:col-span-3 lg:col-start-9"
         >
           <motion.div
-            aria-hidden
-            className="aspect-square w-full rounded-[2rem]"
+            className="relative aspect-square w-full overflow-hidden rounded-[2rem]"
             style={{
-              ...PANELS.ember,
               boxShadow: PANEL_SHADOW,
               y: reduceMotion ? 0 : driftCounter,
             }}
-          />
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1636714573130-bbb1d4b19cc1?auto=format&fit=crop&q=80&w=800"
+              alt="Cream pillar candles and an amber glass jar on white waffle-weave cloth"
+              fill
+              sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 55vw"
+              className="object-cover"
+            />
+          </motion.div>
         </Reveal>
 
         {/* pull quote */}
