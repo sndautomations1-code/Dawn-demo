@@ -1,15 +1,6 @@
 export default function Footer() {
   return (
     <footer className="footer-blend relative z-10 bg-[#fdfbf8]">
-      {/* horizon line as the footer's top border */}
-      <div
-        aria-hidden
-        className="h-px w-full"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, #ffd4c4 30%, #d97a5e 70%, transparent)",
-        }}
-      />
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 sm:px-10 lg:px-16">
         <div className="flex flex-col justify-between gap-10 sm:flex-row sm:items-end">
           <div>
