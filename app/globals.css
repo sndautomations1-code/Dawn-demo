@@ -198,48 +198,41 @@ button:focus-visible {
   }
 }
 
-/* ---- Footer blend: dissolves the CTA section's peach (the fixed
-   sunrise background's final stop, #ffe4d5) into the footer's own
-   cream (#fdfbf8) so the seam between them disappears. Anchored to
-   the footer (not the CTA section) so it paints on top of the CTA's
-   transparent background but stays under the footer's own content —
-   see the negative z-index below. Purely decorative: absolutely
-   positioned, so it adds no height and can't shift layout. ---- */
-.footer-blend {
-  position: relative;
-}
+/* ---- Footer blend ----
+   The peach above the footer is not a background on any section — it's
+   painted by SunriseBackground's fixed full-viewport layer, whose color
+   is scroll-driven and lands on #ffe4d5 at the page bottom. The CTA
+   section above is already transparent.
 
-.footer-blend::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  /* the CTA section's own background is already flat peach up here —
-     the curve opens at 0 so this edge introduces no new seam of its
-     own, rises to its peak right at the real boundary (0,0 = the
-     footer's top edge, 100px down from here), then eases back out
-     through the footer's padding so it's gone before the logo/address
-     text begins. */
-  top: -100px;
-  height: 300px;
-  z-index: -1;
-  pointer-events: none;
-  background:
+   So the seam only ever had one cause: the footer's own opaque #fdfbf8
+   starting abruptly at its top edge. Rather than overlay something on
+   top of that edge, the footer paints *nothing* there — its background
+   is a gradient that opens at alpha 0 and eases the cream in over the
+   next 260px. At the boundary itself the footer contributes zero
+   pixels, so the two surfaces are the same surface and a line is not
+   expressible.
+
+   Fixed px (not %) so the ramp is identical at every footer height. The
+   final stop extends for the rest of the element, so the footer below
+   260px is flat cream. Text is ink on light either way, so contrast is
+   unaffected while the cream fades in. ---- */
+.footer-blend {
+  background-image:
+    radial-gradient(
+      70% 40% at 50% 0%,
+      rgba(255, 224, 206, 0.28) 0%,
+      rgba(255, 224, 206, 0.1) 45%,
+      rgba(255, 224, 206, 0) 78%
+    ),
     linear-gradient(
       to bottom,
-      rgba(255, 228, 213, 0) 0%,
-      rgba(255, 228, 213, 0.1) 20%,
-      rgba(255, 228, 213, 0.6) 33%,
-      rgba(255, 228, 213, 0.82) 40%,
-      rgba(255, 228, 213, 0.32) 55%,
-      rgba(255, 228, 213, 0.08) 75%,
-      rgba(255, 228, 213, 0) 100%
-    ),
-    radial-gradient(
-      65% 55% at 50% 33%,
-      rgba(255, 224, 206, 0.22) 0%,
-      rgba(255, 224, 206, 0.09) 45%,
-      rgba(255, 224, 206, 0) 75%
+      rgba(253, 251, 248, 0) 0px,
+      rgba(253, 251, 248, 0.06) 46px,
+      rgba(253, 251, 248, 0.24) 91px,
+      rgba(253, 251, 248, 0.55) 143px,
+      rgba(253, 251, 248, 0.82) 195px,
+      rgba(253, 251, 248, 0.95) 234px,
+      rgba(253, 251, 248, 1) 260px
     );
 }
 

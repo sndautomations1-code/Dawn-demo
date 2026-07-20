@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer-blend relative z-10 bg-[#fdfbf8]">
+    <footer className="footer-blend relative z-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 sm:px-10 lg:px-16">
         <div className="flex flex-col justify-between gap-10 sm:flex-row sm:items-end">
           <div>
