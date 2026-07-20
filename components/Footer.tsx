@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative z-10 bg-[#fdfbf8]">
+    <footer className="footer-blend relative z-10 bg-[#fdfbf8]">
       {/* horizon line as the footer's top border */}
       <div
         aria-hidden
