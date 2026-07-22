@@ -37,10 +37,10 @@ const TREATMENTS = [
     description: "Targeted collagen renewal for texture and fine lines.",
     duration: "60 min",
     price: "$650",
-    /* handheld resurfacing device gliding over a client's cheek in-clinic */
+    /* warm bare-hand facial skin-renewal treatment in progress, no cool tones */
     image:
-      "https://images.unsplash.com/photo-1761819920857-7edc5e808fd3?auto=format&fit=crop&q=80&w=1200",
-    alt: "Clinician guiding a precision skin-resurfacing device across a client's cheek",
+      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1200",
+    alt: "A specialist's bare hands performing a fine-needle skin-renewal treatment on a reclining client in warm light",
   },
   {
     name: "IPL Photofacial",
@@ -77,10 +77,10 @@ const TREATMENTS = [
     description: "A medical-grade peel with next-day glow.",
     duration: "30 min",
     price: "$240",
-    /* blush botanical macro, fresh and soft */
+    /* warm skin-glow macro — luminous, dewy, soft */
     image:
-      "https://images.unsplash.com/photo-1651154872905-b0f53800de90?auto=format&fit=crop&q=80&w=1200",
-    alt: "Soft blush flower in delicate morning light",
+      "https://images.unsplash.com/photo-1710580889701-9fa8f2cd5927?auto=format&fit=crop&q=80&w=1200",
+    alt: "Close-up of warm, luminous skin with a fine dewy glow in soft morning light",
   },
 ];
 
