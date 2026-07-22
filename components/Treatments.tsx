@@ -29,7 +29,7 @@ const TREATMENTS = [
     price: "$180",
     /* warm facial mask brushed on in a serene spa setting */
     image:
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200",
     alt: "Client relaxing while a warm facial mask is gently brushed onto her skin at a spa",
   },
   {
@@ -39,7 +39,7 @@ const TREATMENTS = [
     price: "$650",
     /* handheld resurfacing device gliding over a client's cheek in-clinic */
     image:
-      "https://images.unsplash.com/photo-1761819920857-7edc5e808fd3?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1761819920857-7edc5e808fd3?auto=format&fit=crop&q=80&w=1200",
     alt: "Clinician guiding a precision skin-resurfacing device across a client's cheek",
   },
   {
@@ -49,7 +49,7 @@ const TREATMENTS = [
     price: "$425",
     /* glowing, even-toned skin washed in soft warm light */
     image:
-      "https://images.unsplash.com/photo-1675773051474-55c4b7d2cf53?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1675773051474-55c4b7d2cf53?auto=format&fit=crop&q=80&w=1200",
     alt: "Close-up of luminous, even-toned skin bathed in soft warm light",
   },
   {
@@ -59,7 +59,7 @@ const TREATMENTS = [
     price: "$1,200",
     /* macro serum texture with air bubbles */
     image:
-      "https://images.unsplash.com/photo-1748543668687-624e058c367c?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1748543668687-624e058c367c?auto=format&fit=crop&q=80&w=1200",
     alt: "Golden resurfacing serum in overlapping droplet discs, photographed up close",
   },
   {
@@ -69,7 +69,7 @@ const TREATMENTS = [
     price: "$550",
     /* golden close-up of firm, lifted skin */
     image:
-      "https://images.unsplash.com/photo-1624819318229-f006595a4993?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1624819318229-f006595a4993?auto=format&fit=crop&q=80&w=1200",
     alt: "Close-up of firm, radiant skin along the cheek and jawline in golden light",
   },
   {
@@ -79,7 +79,7 @@ const TREATMENTS = [
     price: "$240",
     /* blush botanical macro, fresh and soft */
     image:
-      "https://images.unsplash.com/photo-1651154872905-b0f53800de90?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1651154872905-b0f53800de90?auto=format&fit=crop&q=80&w=1200",
     alt: "Soft blush flower in delicate morning light",
   },
 ];
@@ -147,7 +147,7 @@ export default function Treatments() {
                   src={t.image}
                   alt={t.alt}
                   fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
+                  sizes="(min-width: 1280px) 310px, (min-width: 1024px) 24vw, (min-width: 640px) 40vw, 88vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>

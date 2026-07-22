@@ -109,7 +109,7 @@ export default function Experience() {
               src="https://images.unsplash.com/photo-1651065213855-e6094f99ee65?auto=format&fit=crop&q=80&w=1200"
               alt="Sunlit spa treatment room with a linen-covered daybed beside a warm bamboo screen"
               fill
-              sizes="(min-width: 1024px) 45vw, (min-width: 640px) 55vw, 92vw"
+              sizes="(min-width: 1280px) 570px, (min-width: 1024px) 45vw, (min-width: 640px) 55vw, 92vw"
               className="object-cover"
             />
           </motion.div>
@@ -144,7 +144,7 @@ export default function Experience() {
               src="https://images.unsplash.com/photo-1636714573130-bbb1d4b19cc1?auto=format&fit=crop&q=80&w=800"
               alt="Cream pillar candles and an amber glass jar on white waffle-weave cloth"
               fill
-              sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 55vw"
+              sizes="(min-width: 1280px) 270px, (min-width: 1024px) 22vw, (min-width: 640px) 30vw, 55vw"
               className="object-cover"
             />
           </motion.div>
